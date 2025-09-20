@@ -82,6 +82,11 @@ def extract_intent_from_llm(user_input: str) -> Intent:
 # -----------------
 # API Endpoint
 # -----------------
+
+@app.get("/")
+async def root():
+    return {"message": "Input Service is running!"}
+
 @app.post("/parse-intent", response_model=Intent)
 async def parse_intent_endpoint(payload: InputPayload):
     """
